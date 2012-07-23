@@ -45,3 +45,5 @@ nosetests.xml
 .svn
 .hg
 
+# site specific buildout cfg:
+site.cfg
