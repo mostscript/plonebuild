@@ -1,0 +1,24 @@
+# templated values:
+port = ${pgconf:port}
+listen_addresses = '${pgconf:hostname}'
+data_directory = '${pgconf:datadir}' 
+hba_file = '${buildout:directory}/etc/pg_hba.conf'
+unix_socket_directory = '${pgconf:datadir}'
+unix_socket_permissions = ${pgconf:socketmode}
+log_statement = ${pgconf:log} 
+
+# static values for buildout:
+log_destination = 'stderr'
+log_duration = true
+max_connections = 100
+superuser_reserved_connections = 3
+shared_buffers = 200    # min 16 or max_connections*2, 8KB each
+work_mem = 2048         #kb
+autovacuum = 'on'
+track_counts = 'on'
+max_files_per_process = 500
+lc_monetary = 'C'
+lc_messages = 'C'
+lc_numeric = 'C'
+lc_time = 'C'
+

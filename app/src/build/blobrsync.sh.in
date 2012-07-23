@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# N-pass incremental local snapshot directory backup using rsync and cp -al.
+
+SOURCEDIR=${blobrsync:blobdir}
+DESTBASE=${blobrsync:backupdir}/blob
+TARGET="$DESTBASE/blobsnapshot"
+KEEPN=6
+
+if [ ! -d $DESTBASE ]; then mkdir -p $DESTBASE; fi
+
+for ((i=$KEEPN; i >= 0; i--))
+do
+    if [ -d $TARGET.$i ]
+    then
+        if [ $i -eq $KEEPN ]
+        then
+            # mv $TARGET.N (last dir) to $TARGET.tmp for later recycling/reuse
+            mv $TARGET.$i $TARGET.tmp
+        else
+            mv $TARGET.$i "$TARGET.$(expr $i + 1)"
+        fi
+    fi
+done
+# if $TARGET.tmp does not exist, create it
+if [ ! -d $TARGET.tmp ]
+then
+    echo "CREATING: $TARGET.tmp"
+    mkdir $TARGET.tmp
+fi
+# recycle $TARGET.tmp into $TARGET.0 for an rsync backup
+mv $TARGET.tmp $TARGET.0
+# Re-link existing copies of files using hard links via cp -al from $TARGET.1
+if [ -d $TARGET.1 ]
+then
+    cp -al $TARGET.1/. $TARGET.0
+fi
+/usr/bin/rsync -a --delete --numeric-ids $SOURCEDIR/ $TARGET.0
+
+echo "Completed rsync snapshot backup of blobs"
+
