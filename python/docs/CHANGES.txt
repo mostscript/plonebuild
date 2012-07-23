@@ -1,0 +1,263 @@
+Changes
+=======
+
+2012-07-19
+----------
+
+- Update to virtualenv 1.7.2.
+  [hannosch]
+
+- Update to Python 3.3.0b1.
+  [hannosch]
+
+2012-04-04
+----------
+
+- Update to Python 3.3.0a2.
+  [hannosch]
+
+2012-03-21
+----------
+
+- Added `python33.cfg` for Python 3.3.0a1.
+  [hannosch]
+
+- Update to Python 2.6.8rc2, Python 2.7.3rc2 and Python 3.2.3rc2.
+  [hannosch]
+
+2012-02-25
+----------
+
+- Update to virtualenv 1.7.1.2, PyPy 1.8, Python 2.6.8rc1, Python 2.7.3rc1
+  and Python 3.2.3rc1.
+  [hannosch]
+
+2012-01-29
+----------
+
+- Fixed link to zlib 1.2.5 source that broke after release of zlib 1.2.6.
+  [lukebrannon]
+
+2011-12-22
+----------
+
+- Update to PyPy 1.7.
+  [hannosch]
+
+2011-11-30
+----------
+
+- Python 2.6: added patch for missing sslv2 support on newer Linuxes and to
+  support Ubuntu/Debian multiarch library paths.
+  [joka]
+
+2011-08-20
+----------
+
+- Updated `monkeycmmi` to 0.2 and avoid patch for environment / spaces handling.
+
+2011-07-30
+----------
+
+- Update to jpegsrc v8c and set `-arch x86_64` for Lion.
+  [hannosch]
+
+- Update to virtualenv 1.6.4.
+  [hannosch]
+
+- Updated readline to 6.2.
+  [hannosch]
+
+- Changed `MACOSX_DEPLOYMENT_TARGET` to `10.7` for Python 2.4 on Lion.
+  [hannosch]
+
+2011-07-25
+----------
+
+- Add OSX Lion support to the buildout.
+  [dsa]
+
+2011-06-15
+----------
+
+- Updated pypy to 1.5 (only 64 bit version, there is no release for 32 bit).
+  [fschulze]
+
+- Added pdbtextmate support for Python 3.2.
+  [fschulze]
+
+- Removed Python 3.1.x it doesn't work properly anymore and isn't used much
+  and not supported anymore.
+  [fschulze]
+
+- Update to Python 2.7.2.
+  [fschulze]
+
+- Update to Python 2.6.7 final.
+  [fschulze]
+
+2011-05-28
+----------
+
+- Update to Python 2.5.6 final.
+  [hannosch]
+
+2011-05-23
+----------
+
+- Update to Python 2.6.7rc2 to include more security fixes.
+  [hannosch]
+
+2011-05-18
+----------
+
+- New PyPy version 1.4.1.
+  [fschulze]
+
+2011-05-08
+----------
+
+- Update to Python 2.5.6c1 and 2.6.7rc1 to include security fixes.
+  [hannosch]
+
+2011-04-07
+----------
+
+* Add patch to fix recursion error crash on python2.6 OS X from
+  http://bugs.python.org/issue9670 (edited to apply with patch -p0).
+  [elro]
+
+2009-11-26
+----------
+
+* Renamed part for readline patches, so the old ones from 5.2 don't interfere.
+  [fschulze]
+
+2009-11-25
+----------
+
+* Added ugly hack which hopefully solves the build order issues causing
+  Python 2.4 to be build before readline was built.
+  [fschulze]
+
+* Ugraded to readline 6.0, 5.2 had compile issues on OS X.
+  [fschulze]
+
+2009-11-05
+----------
+
+* Use virtualenv 1.4rc1 with the --distribute option.
+  [fschulze]
+
+* Autodetect 32/64 bit in Snow Leopard.
+  [fschulze]
+
+2009-11-03
+----------
+
+* Upgraded virtualenv-distribute to latest version to get distribute 0.6.6.
+  [reinout]
+
+
+2009-10-28
+----------
+
+* Added configuration to build Python with debug symbols for C level
+  debugging. Activate by including src/debug.cfg in your custom configuration.
+  [witsch]
+
+
+2009-10-27
+----------
+
+* Updated to Python 2.6.4.
+  [fschulze]
+
+
+2009-10-12
+----------
+
+* Updated to Python 2.6.4rc1.
+  [hannosch]
+
+
+2009-10-07
+----------
+
+* Fixed Python 2.5.
+  [fschulze]
+
+* Added some sanity checks to make sure the installed Python virtualenvs
+  actually work.
+  [fschulze]
+
+* Auto-detection of the platfrom. No need for separate configs for
+  Snow Leopard etc.
+  [fschulze]
+
+* Use virtualenv-distribute.
+  [fschulze]
+
+* Use distribute instead of setuptools.
+  [fschulze]
+
+
+2009-10-02
+----------
+
+* Updated to Python 2.6.3.
+  [fschulze]
+
+
+2009-09-05
+----------
+
+* Made MacPorts compatible on Snow Leopard by compiling as 64-bit.
+  [fschulze]
+
+* Added Python 2.6 back on Snow Leopard.
+  [fschulze]
+
+
+2009-08-31
+----------
+
+* Running on Snow Leopard with 32-bit. Conflicts with MacPorts.
+  [fschulze]
+
+* Removed zc.buildout scripts again, because the installation fails for some
+  weird reason.
+  [fschulze]
+
+
+2009-08-29
+----------
+
+* Make it possible to extend both distribute.cfg and pdbtextmate.cfg. See
+  pdbtextmate.cfg for notes though!
+  [fschulze]
+
+* Reorganized documentation.
+  [fschulze]
+
+* By depending on zc.buildout >= 1.4.0 the amount of repition in the python
+  parts was vastly reduced and makes the configuration more easily readable.
+  [fschulze]
+
+* Fixed path to patch for Python 2.5 on Snow Leopard.
+  [fschulze]
+
+* Added buildout-2.x scripts back without causing version conflicts by
+  wrapping them with zc.recipe.eggs instead of installing with easy_install.
+  [fschulze]
+
+* Minimized changes for Snow Leopard.
+  [fschulze]
+
+
+2009-08-27
+----------
+
+* Removed zc.buildout installation. It just causes version conflicts in
+  buildouts with a version pin on zc.buildout and similar issues.
+  [fschulze]
