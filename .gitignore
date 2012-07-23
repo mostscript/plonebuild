@@ -9,7 +9,6 @@
 *.EGG
 *.EGG-INFO
 dist
-build
 eggs
 parts
 bin
