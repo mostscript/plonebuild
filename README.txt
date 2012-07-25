@@ -1,7 +1,9 @@
 This is a Plone 4.2 buildout.
 
 Contains Python build sub-tree from github.com/collective/buildout.python
+(GPL v2 licensed).
 
-All content herein is licensed under an MIT-style license (see COPYING.txt).
+All content herein (excepting the python/ directory) is licensed under an MIT-style
+license (see COPYING.txt).
 
 
