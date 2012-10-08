@@ -50,8 +50,8 @@ backend zope
   # "maxconn" is how many connections can be sent to the server at once
   # "check" enables health checks
   # "rise 1" means consider Zope up after 1 successful health check
-  server  plone0101 ${instance:http-address} cookie p0101 check maxconn 4 inter 10 rise 1
-  server  plone0102 ${instance2:http-address} cookie p0102 check maxconn 4 inter 10 rise 1
-  server  plone0103 ${instance3:http-address} cookie p010 check maxconn 4 inter 10 rise 1
-  server  plone0104 ${instance4:http-address} cookie p0102 check maxconn 4 inter 10 rise 1
+  server  plone0101 ${instance:http-address} cookie p0101 check maxconn 4 inter 10000 rise 1
+  server  plone0102 ${instance2:http-address} cookie p0102 check maxconn 4 inter 10500 rise 1
+  server  plone0103 ${instance3:http-address} cookie p010 check maxconn 4 inter 10000 rise 1
+  server  plone0104 ${instance4:http-address} cookie p0102 check maxconn 4 inter 10500 rise 1
 
