@@ -1,4 +1,4 @@
-This is a Plone 4.2 buildout.
+This is a Plone 4 buildout.
 
 Contains Python build sub-tree from github.com/collective/buildout.python
 (GPL v2 licensed).
