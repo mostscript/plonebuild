@@ -36,7 +36,7 @@ frontend zopecluster
 # Load balancing over the zope instances
 backend zope
   # Use Zope's __ac cookie as a basis for session stickiness if present.
-  appsession __ac len 32 timeout 1d
+  appsession __ac len 32 timeout 1h
   # Otherwise add a cookie called "serverid" for maintaining session stickiness.
   # This cookie lasts until the client's browser closes, and is invisible to Zope.
   cookie serverid insert nocache indirect
@@ -53,5 +53,4 @@ backend zope
   server  plone0101 ${instance:http-address} cookie p0101 check maxconn 4 inter 10000 rise 1
   server  plone0102 ${instance2:http-address} cookie p0102 check maxconn 4 inter 10500 rise 1
   server  plone0103 ${instance3:http-address} cookie p010 check maxconn 4 inter 10000 rise 1
-  server  plone0104 ${instance4:http-address} cookie p0102 check maxconn 4 inter 10500 rise 1
 
