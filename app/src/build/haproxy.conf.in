@@ -1,5 +1,5 @@
 global
-  log 127.0.0.1 local6
+  log 127.0.0.1 local0 info
   maxconn  ${haproxy-conf:maxconn}
   daemon
   nbproc 1
@@ -7,6 +7,10 @@ global
 defaults
   mode http
   option httpclose
+  # logging options
+  log global
+  option httplog
+  option log-separate-errors
   # Remove requests from the queue if people press stop button
   retries 3
   # If a client is bound to a particular backend but it goes down,
