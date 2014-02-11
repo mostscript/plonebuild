@@ -1,7 +1,7 @@
 # templated values:
 port = ${pgconf:port}
 listen_addresses = '${pgconf:hostname}'
-data_directory = '${pgconf:datadir}' 
+data_directories = '${pgconf:datadir}' 
 hba_file = '${buildout:directory}/etc/pg_hba.conf'
 unix_socket_directory = '${pgconf:datadir}'
 unix_socket_permissions = ${pgconf:socketmode}
