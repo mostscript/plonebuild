@@ -35,7 +35,7 @@ if [ -d $TARGET.1 ]
 then
     cp -al $TARGET.1/. $TARGET.0
 fi
-/usr/bin/rsync -a --delete --numeric-ids $SOURCEDIR/ $TARGET.0
+/usr/bin/rsync -a --exclude '*.lock' --exclude 'savepoint*' --delete --numeric-ids $SOURCEDIR/ $TARGET.0
 
 echo "Completed rsync snapshot backup of blobs"
 
