@@ -52,4 +52,5 @@ backend zope
   server  plone0101 ${instance:http-address} cookie p0101 check maxconn 4 inter 6000 rise 1
   server  plone0102 ${instance2:http-address} cookie p0102 check maxconn 4 inter 6500 rise 1
   server  plone0103 ${instance3:http-address} cookie p0103 check maxconn 4 inter 5500 rise 1
+  server  plone0104 ${instance4:http-address} cookie p0104 check maxconn 4 inter 5500 rise 1
 
