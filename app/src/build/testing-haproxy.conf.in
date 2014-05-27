@@ -1,0 +1,53 @@
+global
+  log 127.0.0.1 local0 info
+  maxconn  ${haproxy-conf:maxconn}
+  daemon
+  nbproc 1
+
+defaults
+  mode http
+  option httpclose
+  # logging options
+  log global
+  option httplog
+  option log-separate-errors
+  # Remove requests from the queue if people press stop button
+  retries 3
+  # If a client is bound to a particular backend but it goes down,
+  # send them to a different one
+  option redispatch
+  monitor-uri /haproxy-ping
+
+  timeout connect 7s
+  timeout queue   300s
+  timeout client  600s
+  timeout server  600s
+
+  # Enable status page at this URL, on the port HAProxy is bound to
+  stats enable
+  stats uri /haproxy-status
+  stats refresh 5s
+  stats realm Haproxy\ statistics
+
+frontend zopecluster
+  bind ${haproxy-conf:bind}
+  default_backend zope
+
+# Load balancing over the zope instances
+backend zope
+  # insert a session cookie for uncookied connections, persist/stick
+  # cookied user to backend for up to 1 hour:
+  cookie zinstance insert indirect maxlife 1h
+  # If no session found, use the roundrobin load-balancing algorithm to pick a backend.
+  balance leastconn
+  # Use / (the default) for periodic backend health checks
+  option httpchk
+
+  # Server options:
+  # "cookie" sets the value of the serverid cookie to be used for the server
+  # "check" enables health checks
+  # "maxconn" is how many connections can be sent to the server at once
+  # "inter" sets the health check interval for server
+  # "rise 1" means consider Zope up after 1 successful health check
+  server  plone0101 ${instance:http-address} cookie p0101 check maxconn 4 inter 6000 rise 1
+  server  plone0102 ${instance2:http-address} cookie p0102 check maxconn 4 inter 6500 rise 1
