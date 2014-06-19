@@ -21,6 +21,14 @@ fake-eggs
 lib
 lib64
 
+# Source hosted in other repositories:
+app/src/*
+!app/src/build
+
+# Exclude generated configuration files (unless explicitly added with
+# "git add -f" command):
+app/etc/*.conf
+
 # Installer logs
 pip-log.txt
 
