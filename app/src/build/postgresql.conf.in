@@ -6,6 +6,8 @@ hba_file = '${buildout:directory}/etc/pg_hba.conf'
 unix_socket_directories = '${pgconf:datadir}'
 unix_socket_permissions = ${pgconf:socketmode}
 log_statement = ${pgconf:log} 
+ssl = ${pgconf:ssl}
+ssl_ca_file = '${pgconf:ssl_ca_file}'
 
 # static values for buildout:
 log_destination = 'stderr'
