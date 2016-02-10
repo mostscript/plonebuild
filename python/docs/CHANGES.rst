@@ -1,6 +1,331 @@
 Changes
 =======
 
+2016-01-16
+----------
+
+- Update to PyPy on Linux to 4.0.1.
+  [fschulze]
+
+- Update to Python 3.4.4.
+  [fschulze]
+
+
+2015-12-09
+----------
+
+- Make pypy and pypy3 work automatically for newer OS X releases.
+  [fschulze]
+
+- Move Linux specific download URLs for pypy and pypy3 from default to
+  linux2 section.
+  [fschulze]
+
+- Update to Python 2.7.11, 3.5.1 and 3.4.4rc1.
+  [fschulze]
+
+- Add missing md5sum for older releases.
+  [fschulze]
+
+
+2015-11-22
+----------
+
+- Update to Python 2.7.11rc1.
+  [hannosch]
+
+
+2015-11-20
+----------
+
+- Upgraded to pypy 4.0.1.
+  [fschulze]
+
+
+2015-11-10
+----------
+
+- Upgraded to pypy 4.0.0.
+  [fschulze]
+
+
+2015-11-02
+----------
+
+- Added a Python 3.5 virtualenv command
+  [mj]
+
+2015-10-01
+----------
+
+- Use latest setuptools for Python 3.3, 3.4 and 3.5.  The old ez_setup
+  and/or setuptools is giving errors.
+  This fixes #51 and refs #40.
+  [maurits]
+
+- Added missing default urls for pypy and pypy3.
+  [maurits]
+
+- Fixed Python2.4 ssl bindings on El Capitan.
+  [jladage]
+
+- Introduce a new `darwin-elcapitan` platform and adjust various parts to
+  use the same settings as under `darwin-yosemite`.
+  [hannosch]
+
+2015-09-13
+----------
+
+- Upgraded Python 3.5 to 3.5.0
+  [mj]
+
+2015-07-05
+----------
+
+- Upgraded pypy to 2.6.0.
+  [hannosch]
+
+- Upgraded Python 3.5 to 3.5.0b2.
+  [hannosch]
+
+- Upgraded Python 3 to 3.2.5, 3.3.6 and 3.4.3.
+  [hannosch]
+
+- Changed Python 2.4, 2.5 and 2.6 downloads to use https.
+  [hannosch]
+
+2015-05-24
+----------
+
+- Upgraded Python 2.7 to 2.7.10
+  [mj]
+
+- Upgraded Python 3.5 to 3.5.0a4
+  [mj]
+
+2015-03-12
+----------
+
+- Virtualenv: do not call with --distribute option.
+  [maurits]
+
+- Python2.4: make platform.mac_ver() return '10.10' on Yosemite.
+  [RichardBarrell]
+
+2015-02-09
+----------
+
+- Added Python 3.5.0a1
+  [mj]
+
+2015-02-07
+----------
+
+- Updated pypy to 2.5.0 and pypy3 to 2.4.0.
+  [fschulze]
+
+2014-12-12
+----------
+
+- Update to Python 2.7.9.
+  [hannosch]
+
+2014-12-01
+----------
+
+- Update to Python 2.7.9rc1.
+  [fschulze]
+
+2014-11-18
+----------
+
+- Fix install-links script for changed name of pip script. It lost the dash
+  between pip and the version number.
+  [fschulze]
+
+2014-10-16
+----------
+
+- Update to Python 3.4.2.
+  [hannosch]
+
+2014-09-24
+----------
+
+- Introduce a new `darwin-yosemite` platform and adjust various parts to
+  use the same settings as under `darwin-mavericks`.
+  [mj]
+
+2014-09-21
+----------
+
+- Update to PyPy 2.4.0.
+  [hannosch]
+
+2014-09-16
+----------
+
+- Use virtualenv for Python 3.4.
+
+- Upgrade virtualenv to 1.11.6
+  [fschulze]
+
+2014-07-20
+----------
+
+- Expand ~ to user's home in prefix of install-links script.
+  [lgraf]
+
+2014-07-03
+----------
+
+- Update to Python 2.7.8 and 3.4.1.
+  [hannosch]
+
+2014-03-20
+----------
+
+- Clarify naming of ez_setup.py for 1.x / 2.x versions.
+  [hannosch]
+
+2014-03-17
+----------
+
+- Update to Python 3.4.0
+  [mj]
+
+2014-03-14
+----------
+
+- Use ez_setup.py from setuptools 2.2 for all Python versions >= 2.6.
+  [hannosch]
+
+- Update to PyPy 2.2.1.
+  [hannosch]
+
+- Update bundled ez_setup.py to version 1.4.2, last to support Python < 2.6.
+  [hannosch]
+
+2014-03-13
+----------
+
+- Update to Python 3.3.5 and Python 3.4.0rc3.
+  [fschulze]
+
+
+2014-02-14
+----------
+
+- Update to Python 3.3.4 and Python 3.4.0rc1.
+  [fschulze]
+
+
+2013-11-26
+----------
+
+- Fix missing ssl support in Python 2.4 on Debian, Ubuntu and possibly other
+  Linux distributions.
+  [nueces, fschulze]
+
+- Update to Python 3.4.0b1.
+  [fschulze]
+
+- Fix Python 2.5 for Mavericks.
+  [fschulze]
+
+
+2013-11-22
+----------
+
+- Only add the PyPy parts on OS X.
+  [fschulze]
+
+- Update to Python 3.3.3 and PyPy 2.2.
+  [fschulze]
+
+
+2013-11-14
+----------
+
+- Fix Python 2.4 for Mavericks.
+
+
+2013-11-13
+----------
+
+- Update to Python 2.7.6.
+  [fschulze]
+
+
+2013-11-09
+----------
+
+- Update to Python 2.6.9.
+  [fschulze]
+
+
+2013-10-23
+----------
+
+- Introduce a new `darwin-mavericks` platform and adjust various parts to
+  use the same settings as under `darwin-mountainlion`.
+  [hannosch]
+
+
+2013-10-11
+----------
+
+- Replace install-links shell script with a more sophisticated Python one which
+  also properly handles pypy.
+  [fschulze, mauritsvanrees]
+
+
+2013-10-10
+----------
+
+- Added Python 3.4 to default buildout.cfg.
+  [fschulze]
+
+- Use pyvenv for Python 3.4.
+  [fschulze]
+
+
+2013-10-05
+----------
+
+- Update to Python 2.6.9rc1.
+  [fschulze]
+
+- Added `python34.cfg` for Python 3.4.0a3. Only the build part is active,
+  virtualenv 1.10.1 doesn't work with Python 3.4 yet.
+  [fschulze]
+
+
+2013-10-02
+----------
+
+- Use collective.recipe.cmmi which allows multiple patches.
+  [fschulze]
+
+
+2013-10-01
+----------
+
+- Install PIL in the built python instead of the virtualenv, so any new
+  virtualenv created with --system-site-packages has access to it.
+  [fschulze]
+
+
+2013-08-31
+----------
+
+- Update to PyPy 2.1.
+  [fschulze]
+
+- Added pypy3.cfg.
+  [fschulze]
+
+
 2013-08-26
 ----------
 
