@@ -33,6 +33,20 @@
 
 # some global constants
 PYVER=2.7
+UNAME=$(uname -a)
+SSLPATH=/usr/include/openssl
+
+# El Capitan requies this, earlier OS X can support it:
+if [[ $UNAME == *"Darwin"* ]]
+then
+    echo "Mac OS X detected, assuming we use homebrew OpenSSL..."
+    SSLPATH=/usr/local/opt/openssl/include/openssl
+    if [ ! -f $SSLPATH/ssl.h ]
+    then
+        echo "...Homebrew OpenSSL does not appear to be installed; exiting."
+        exit 1
+    fi
+fi
 
 # some paths necessary for execution
 BUILD_ROOT=$(dirname $0)
@@ -42,13 +56,20 @@ fi
 SYSTEM_PYTHON=$(which python)
 APP_PYTHON="$BUILD_ROOT/python/python-$PYVER/bin/python"
 
+# force python rebuild by removing python/.installed.cfg
+if [ -f $BUILD_ROOT/python/.installed.cfg ]
+then
+    echo "Removing existing Python build configuration, in order to rebuild."
+    rm $BUILD_ROOT/python/.installed.cfg
+fi
+
 # buildout for Application Python, libraries; bootstrapped via system Python
 echo "=== BUILDING PYTHON ENVIRONMENT AND LIBRARIES ==="
 echo "    System Python: $SYSTEM_PYTHON"
 cp $BUILD_ROOT/pysite_in.cfg $BUILD_ROOT/python/site.cfg
 cd $BUILD_ROOT/python
 $SYSTEM_PYTHON bootstrap.py
-bin/buildout -N -c site.cfg
+bin/buildout -c site.cfg
 
 # buildout for application server / hosting stack
 echo "=== BUILDING APPLICATION SERVER STACK BUILDOUT ==="
@@ -66,5 +87,5 @@ else
 fi
 
 echo "=== DONE WITH BUILDOUTS. ==="
-exit 0;
+exit 0
 
