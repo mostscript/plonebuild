@@ -61,6 +61,7 @@ if [ -f $BUILD_ROOT/python/.installed.cfg ]
 then
     echo "Removing existing Python build configuration, in order to rebuild."
     rm $BUILD_ROOT/python/.installed.cfg
+    rm -rf $BUILD_ROOT/python/parts/*
 fi
 
 # buildout for Application Python, libraries; bootstrapped via system Python
