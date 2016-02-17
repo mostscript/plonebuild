@@ -17,10 +17,19 @@ def osdetect(buildout):
             platforms.insert(0, 'darwin-lion')
         elif mac_ver[0].startswith('10.8'):
             platforms.insert(0, 'darwin-mountainlion')
+        elif mac_ver[0].startswith('10.9'):
+            platforms.insert(0, 'darwin-mavericks')
+        elif mac_ver[0].startswith('10.10'):
+            platforms.insert(0, 'darwin-yosemite')
+        elif mac_ver[0].startswith('10.11'):
+            platforms.insert(0, 'darwin-elcapitan')
     elif sys.platform == 'linux2':
-        dist, version, name = platform.dist()
-        platforms.insert(0, '-'.join([sys.platform, dist.lower(), version]))
-        platforms.insert(0, '-'.join([sys.platform, dist.lower(), name.lower()]))
+        platforms.insert(0, 'linux2')
+        dist, version, name = [x.lower() for x in platform.dist()]
+        platforms.insert(0, '-'.join([sys.platform, dist]))
+        platforms.insert(0, '-'.join([sys.platform, dist, version]))
+        if name:
+            platforms.insert(0, '-'.join([sys.platform, dist, name]))
     elif platform.machine() == 'x86_64':
         platforms.insert(0, 'x86_64')
 
@@ -38,8 +47,8 @@ def osdetect(buildout):
         variants.setdefault(variant, []).append((part, key))
         parts.add(part)
 
-    for platform in platforms:
-        for part, key in variants.get(platform, []):
+    for platform_name in platforms:
+        for part, key in variants.get(platform_name, []):
             if part in buildout._raw:
                 continue
             buildout._raw[part] = buildout._raw[key].copy()
