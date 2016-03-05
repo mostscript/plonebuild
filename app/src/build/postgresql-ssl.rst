@@ -125,6 +125,6 @@ Example pg_hba line:
 
 ::
 
-  # SSL connections over IPv4 to plone4_zodb database
-  hostssl plone4_zodb qi          0.0.0.0/0             cert  clientcert=1
+  # SSL connections over IPv4 to plone_zodb database
+  hostssl plone_zodb qi          0.0.0.0/0             cert  clientcert=1
 
