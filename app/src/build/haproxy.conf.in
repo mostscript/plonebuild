@@ -35,11 +35,10 @@ frontend zopecluster
 
 # Load balancing over the zope instances
 backend zope
-  # insert a session cookie for uncookied connections, persist/stick
-  # cookied user to backend for up to 1 hour:
-  cookie zinstance insert indirect maxlife 1h
-  # If no session found, use the roundrobin load-balancing algorithm to pick a backend.
-  balance leastconn
+  # To avoid side-effects of using cookies for sticky sessions, we will
+  # simply use the X-Forwarded-For header IP address (cookies confuse
+  # cacheability of request by Varnish):
+  balance hdr(x-forwarded-for) 
   # Use / (the default) for periodic backend health checks
   option httpchk
 
