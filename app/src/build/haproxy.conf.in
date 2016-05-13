@@ -63,3 +63,9 @@ backend zope
   server  plone0103 ${instance3:http-address} cookie p0103 check
   server  plone0104 ${instance4:http-address} cookie p0104 check
 
+  # X-Backend-Server (note, this would be done differently in haproxy 1.5+):
+  rspadd X-Backend-Server:\ plone0101  if { srv_id 1 }
+  rspadd X-Backend-Server:\ plone0102  if { srv_id 2 }
+  rspadd X-Backend-Server:\ plone0103  if { srv_id 3 }
+  rspadd X-Backend-Server:\ plone0104  if { srv_id 4 }
+
