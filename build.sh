@@ -27,9 +27,6 @@
 #
 #                   * This buildout is run and tested on 64bit
 #                     Linux and Mac OS X.
-#
-#   Default is deployment buildout, for a tiny buildout, pass single
-#   option --tiny
 
 # some global constants
 PYVER=2.7
@@ -76,10 +73,7 @@ bin/buildout -c site.cfg
 echo "=== BUILDING APPLICATION SERVER STACK BUILDOUT ==="
 cd $BUILD_ROOT/app
 $APP_PYTHON bootstrap.py
-if [ "$1" == "--tiny" ]; then
-    echo "=== TINY/DEVELOPMENT-ONLY BUILDOUT REQUESTED ==="
-    bin/buildout -N -c tiny.cfg
-elif [ "$1" == "--upiq" ]; then
+if [ "$1" == "--upiq" ]; then
     echo "=== UPIQ BUILDOUT REQUESTED ==="
     bin/buildout -N -c upiq.cfg
 else
