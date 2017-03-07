@@ -1,6 +1,156 @@
 Changes
 =======
 
+2017-02-21
+----------
+
+- Update ez_setup-latest.py from 18.4 to 33.1.1 and use it for Python 2.7.
+  [hannosch]
+
+2017-01-17
+----------
+
+- Update to 3.4.6 and 3.5.3.
+  [fschulze]
+
+
+2017-01-05
+----------
+
+- Update to 3.4.6rc1 and 3.5.3rc1.
+  [fschulze]
+
+- Pin Pillow to <4 for Python 2.6.
+  [fschulze]
+
+
+2016-12-23
+----------
+
+- Update to 3.6.0 final
+  [mj]
+
+- Disable `--enable-optimizations` flag for Python 2.7.13 until builds work on
+  OS X.
+  [mj]
+
+
+2016-12-22
+----------
+
+- Update to 2.7.13. Had to remove the `--enable-optimizations` flag for
+  El Capitan (OS X 10.11), as C extension modules like _struct failed to build.
+  Didn't test on Sierra (macOS 10.12) or older, where it is still enabled.
+  [fschulze]
+
+- Update to 3.6.0rc2.
+  [fschulze]
+
+
+2016-12-07
+----------
+
+- Update to 3.6.0rc1.
+  [fschulze]
+
+
+2016-11-27
+----------
+
+- Add `--enable-optimizations` configure flag.
+  [hannosch]
+
+
+2016-11-22
+----------
+
+- Update to 3.6.0b4.
+  [fschulze]
+
+
+2016-11-02
+----------
+
+- Update to 3.6.0b3.
+  [mj]
+
+
+2016-10-18
+----------
+
+- Update to 3.6.0b2.
+  [fschulze]
+
+- Update to PyPy3 5.5.0-alpha.
+  [fschulze]
+
+
+2016-08-16
+----------
+
+- Update to 3.6.0b1.
+  [mj]
+
+
+2016-07-24
+----------
+
+- Add macOS Sierra (10.12) support.
+  [aclark4life]
+
+
+2016-06-28
+----------
+
+- Update to Python 2.7.12, 3.5.2 and 3.4.5.
+  [fschulze]
+
+
+2016-06-09
+----------
+
+- Update to jpegsrc v9b.
+  [fschulze]
+
+- Updated readline to 6.3.
+  [fschulze]
+
+- Update to PyPy3 5.2.0-alpha1.
+  [fschulze]
+
+- Update virtualenv to 15.0.2.
+  [fschulze]
+
+- Add virtualenv version pin for Python 3.2.
+  [fschulze]
+
+- Move pinned virtualenv settings to respective python*.cfg.
+  [fschulze]
+
+- The virtualenv*.in templates were all the same, use only one.
+  [fschulze]
+
+- Update to PyPy 5.3.0.
+  [fschulze]
+
+
+2016-05-18
+----------
+
+- Add Python 3.6.0a1.
+  [fschulze]
+
+- Update to PyPy 5.1.1.
+  [fschulze]
+
+
+2016-04-21
+----------
+
+- Update to PyPy 5.1.0.
+  [fschulze]
+
+
 2016-01-16
 ----------
 
