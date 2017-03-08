@@ -32,12 +32,14 @@
 PYVER=2.7
 UNAME=$(uname -a)
 SSLPATH=/usr/include/openssl
+PYBUILD="bin/buildout -c site.cfg"
 
 # El Capitan requies this, earlier OS X can support it:
 if [[ $UNAME == *"Darwin"* ]]
 then
     echo "Mac OS X detected, assuming we use homebrew OpenSSL..."
     SSLPATH=/usr/local/opt/openssl/include/openssl
+    PYBUILD=SSL='$(brew --prefix openssl) CFLAGS="-I$SSL/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$SSL/lib" ./bin/buildout -c site.cfg'
     if [ ! -f $SSLPATH/ssl.h ]
     then
         echo "...Homebrew OpenSSL does not appear to be installed; exiting."
@@ -67,7 +69,7 @@ echo "    System Python: $SYSTEM_PYTHON"
 cp $BUILD_ROOT/pysite_in.cfg $BUILD_ROOT/python/site.cfg
 cd $BUILD_ROOT/python
 $SYSTEM_PYTHON bootstrap.py
-bin/buildout -c site.cfg
+$PYBUILD
 
 # buildout for application server / hosting stack
 echo "=== BUILDING APPLICATION SERVER STACK BUILDOUT ==="
