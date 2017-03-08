@@ -39,7 +39,7 @@ if [[ $UNAME == *"Darwin"* ]]
 then
     echo "Mac OS X detected, assuming we use homebrew OpenSSL..."
     SSLPATH=/usr/local/opt/openssl/include/openssl
-    PYBUILD=SSL='$(brew --prefix openssl) CFLAGS="-I$SSL/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$SSL/lib" ./bin/buildout -c site.cfg'
+    PYBUILD='SSL=$(brew --prefix openssl) CFLAGS="-I$SSL/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$SSL/lib" ./bin/buildout -c site.cfg'
     if [ ! -f $SSLPATH/ssl.h ]
     then
         echo "...Homebrew OpenSSL does not appear to be installed; exiting."
