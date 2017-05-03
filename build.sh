@@ -34,15 +34,23 @@ UNAME=$(uname -a)
 SSLPATH=/usr/include/openssl
 PYBUILD="bin/buildout -c site.cfg"
 
-# El Capitan requies this, earlier OS X can support it:
+# macOS 10.11+ requies this:
 if [[ $UNAME == *"Darwin"* ]]
 then
-    echo "Mac OS X detected, assuming we use homebrew OpenSSL..."
-    SSLPATH=/usr/local/opt/openssl/include/openssl
+    echo "Mac OS X detected, assuming we use homebrew OpenSSL, zlib..."
+    export LDFLAGS="-L/usr/local/opt/openssl/lib -L/usr/local/opt/zlib/lib"
+    export CFLAGS="-I/usr/local/opt/openssl/include -I/usr/local/opt/zlib/include"
+    BREWPATH=/usr/local/opt
     PYBUILD='SSL=$(brew --prefix openssl) CFLAGS="-I$SSL/include -I$(xcrun --show-sdk-path)/usr/include" LDFLAGS="-L$SSL/lib" ./bin/buildout -c site.cfg'
-    if [ ! -f $SSLPATH/ssl.h ]
+    if [ ! -f $BREWPATH/openssl/include/ssl.h ]
     then
         echo "...Homebrew OpenSSL does not appear to be installed; exiting."
+        exit 1
+    fi
+    if [ ! -f $BREWPATH/zlib/include/zlib.h ]
+    then
+        # needed for application install, (only) if Pillow is built there.
+        echo "...Homebrew zlib, does not appear to be installed; exiting."
         exit 1
     fi
 fi
