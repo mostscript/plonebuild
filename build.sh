@@ -80,8 +80,8 @@ if [ "$1" == "--tiny" ]; then
     echo "=== TINY/DEVELOPMENT-ONLY BUILDOUT REQUESTED ==="
     bin/buildout -N -c tiny.cfg
 elif [ "$1" == "--upiq" ]; then
-    echo "=== UPIQ BUILDOUT REQUESTED ==="
-    bin/buildout -N -c upiq.cfg
+    echo "=== FULL Shrubfrog APP BUILDOUT REQUESTED ==="
+    bin/buildout -N -c app.cfg
 else
     echo "=== DEFAULT (production) BUILDOUT REQUESTED ==="
     bin/buildout -N -c buildout.cfg
