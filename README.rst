@@ -1,5 +1,5 @@
-UPIQ buildout
-=============
+Mostscript buildout
+===================
 
 This is a Plone buildout for Mostscript projects.  
 
@@ -39,6 +39,11 @@ All content herein (excepting the python/ directory) has title owned by its
 author(s) and all, except Python build, licensed under an MIT-style license
 (see COPYING.txt).
 
-Copyright © 2018 Mostscript LLC
-Copyright © 2010-2017 The University of Utah
+Recent work and modification
+
+    Copyright © 2018 Mostscript LLC
+
+Original work
+
+    Copyright © 2010-2017 The University of Utah
 

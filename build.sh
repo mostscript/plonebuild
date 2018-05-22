@@ -79,7 +79,7 @@ $APP_PYTHON bootstrap.py
 if [ "$1" == "--tiny" ]; then
     echo "=== TINY/DEVELOPMENT-ONLY BUILDOUT REQUESTED ==="
     bin/buildout -N -c tiny.cfg
-elif [ "$1" == "--upiq" ]; then
+elif [ "$1" == "--app" ]; then
     echo "=== FULL Shrubfrog APP BUILDOUT REQUESTED ==="
     bin/buildout -N -c app.cfg
 else
