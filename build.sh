@@ -83,9 +83,9 @@ $PYBUILD
 echo "=== BUILDING APPLICATION SERVER STACK BUILDOUT ==="
 cd $BUILD_ROOT/app
 $APP_PYTHON bootstrap.py
-if [ "$1" == "--upiq" ]; then
-    echo "=== UPIQ BUILDOUT REQUESTED ==="
-    bin/buildout -N -c upiq.cfg
+if [ "$1" == "--app" ]; then
+    echo "=== APP BUILDOUT REQUESTED ==="
+    bin/buildout -N -c app.cfg
 else
     echo "=== DEFAULT (production) BUILDOUT REQUESTED ==="
     bin/buildout -N -c buildout.cfg
