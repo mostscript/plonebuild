@@ -76,7 +76,7 @@ echo "=== BUILDING PYTHON ENVIRONMENT AND LIBRARIES ==="
 echo "    System Python: $SYSTEM_PYTHON"
 cp $BUILD_ROOT/pysite_in.cfg $BUILD_ROOT/python/site.cfg
 cd $BUILD_ROOT/python
-$SYSTEM_PYTHON bootstrap.py --setuptools-version 33.1.1
+$SYSTEM_PYTHON bootstrap.py
 $PYBUILD
 
 # buildout for application server / hosting stack
